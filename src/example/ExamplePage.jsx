@@ -13,17 +13,15 @@ const ExamplePage = () => {
 
   return (
     <main>
-      <div className="py-5">
+      <Container className="pt-5">
         <h1>Shell Page</h1>
         <p>I am the parent page, and share react, react-dom, and @openedx/paragon to my remotes.</p>
-        <Container style={{ marginTop: '2em' }}>
-          <Suspense fallback="Loading...">
-            {errorLoading
-              ? `Error loading module "${module}"`
-              : FederatedComponent && <FederatedComponent />}
-          </Suspense>
-        </Container>
-      </div>
+      </Container>
+      <Suspense fallback="Loading...">
+        {errorLoading
+          ? `Error loading module "${module}"`
+          : FederatedComponent && <FederatedComponent />}
+      </Suspense>
     </main>
   );
 };
