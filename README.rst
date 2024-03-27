@@ -1,13 +1,6 @@
 frontend-app-mf-shell
 ##########################
 
-.. note::
-
-  This README is a template.  As a maintainer, please review its contents and
-  update all relevant sections. Instructions to you are marked with
-  "mf-shell" or "[TODO]". Update or remove those sections, and remove this
-  note when you are done.
-
 |license-badge| |status-badge| |ci-badge| |codecov-badge|
 
 .. |license-badge| image:: https://img.shields.io/github/license/openedx/frontend-app-mf-shell.svg
@@ -27,87 +20,22 @@ frontend-app-mf-shell
 Purpose
 =======
 
-.. note::
+This MFE is a shell application demonstrating how we can dynamically compose micro-frontends together using Webpack Module Federation.  It has a single page which loads a hard-coded remote component from a companion MFE, `frontend-app-mf-domain1`_.
 
-   [TODO]
+.. _frontend-app-mf-domain1: https://github.com/davidjoy/frontend-app-mf-domain1
 
-   What is this MFE?  Add a 2-3 sentence description of what it is and what it
-   does.
+Running the two apps together demonstrates:
 
-This is the Awesome MFE.  It was built to provide an unmatched learning
-experience, with improved tools for both randomized goodness and the ability to
-directly reference amaze-blocks in existing courses. This experience is powered
-by the new Fantastico storage engine.
+- Loading remote modules from another independently deployed MFE, domain1.
+- Sharing libraries from the shell with the domain1 MFE.  ``react``, ``react-dom``, and ``@openedx/paragon`` are shared.
+- Dynamic module federation - the shell app does not need to know who the remote app is at build time.
+- Hot module replacement for both shell and remote.
+- Dynamically loaded CSS modules.
 
 Getting Started
 ===============
 
-Devstack Installation
----------------------
-
-.. note::
-
-   [TODO]
-
-   Describe in detail how this MFE can be installed and set up for development
-   in a devstack.  Include as many screenshots as you can to make your guide
-   easier to follow!  Use the following steps as an example:
-
-Follow these steps to provision, run, and enable an instance of the
-mf-shell MFE for local development via the `devstack`_.
-
-.. _devstack: https://github.com/openedx/devstack#getting-started
-
-#. To start, clone the devstack repository as a child of an arbitrary ``~/workspace/`` directory.
-
-   .. code-block::
-
-      mkdir -p ~/workspace/
-      cd ~/workspace/
-      git clone https://github.com/openedx/devstack.git
-
-#. Configure default services and setup devstack
-
-   Create a ``devstack/options.local.mk`` file with only the services required.
-   Commonly, this will just be the LMS:
-
-   .. code-block::
-
-      DEFAULT_SERVICES ?= \
-      lms
-
-#. Start the devstack with:
-
-   .. code-block::
-
-      cd devstack
-      make dev.pull
-      make dev.provision
-      make dev.up
-
-#. In an LMS shell, enable the ``ENABLE_mf-shell_MICROFRONTEND`` feature flag:
-
-   .. code-block::
-
-      make lms-shell
-      vim /edx/etc/lms.yml
-      ---
-      FEATURES:
-          ENABLE_mf-shell_MICROFRONTEND: true
-
-   Exit the shell and restart the LMS so changes take effect:
-
-   .. code-block::
-
-      make lms-restart
-
-#. Create and enable the waffle flag required to redirect users to the MFE,
-   enabling it for everyone:
-
-   .. code-block::
-
-      make lms-shell
-      ./manage.py lms waffle_flag --create --everyone mf-shell.redirect_to_microfrontend
+These MFEs do not need a running Open edX instance to function.  You're welcome.
 
 #. Start this MFE with:
 
@@ -127,87 +55,10 @@ mf-shell MFE for local development via the `devstack`_.
 
       "Polycon marking template" by mangtronix is licensed under CC BY-SA 2.0.
 
-Configuration
--------------
-
-.. note::
-
-   [TODO]
-
-   Explicitly list anything that this MFE requires to function correctly.  This includes:
-
-   * A list of both required and optional .env variables, and how they each
-     affect the functioning of the MFE
-
-   * A list of edx-platform `feature and waffle flags`_ that are either required
-     to enable use of this MFE, or affect the behavior of the MFE in some other
-     way
-
-   * A list of IDAs or other MFEs that this MFE depends on to function correctly
-
-.. _feature and waffle flags: https://docs.openedx.org/projects/openedx-proposals/en/latest/best-practices/oep-0017-bp-feature-toggles.html
-
-[PLACEHOLDER: Other Relevant Sections]
-======================================
-
-.. note::
-
-   [TODO]
-
-   This is optional, but you might have additional sections you wish to cover.
-   For instance, architecture documentation, i18n notes, build process, or
-   more.
-
 Known Issues
 ============
 
-.. note::
-
-   [TODO]
-
-   If there are long-standing known issues, list them here as a bulletted list,
-   linking to the actual issues in the Github repository.
-
-Development Roadmap
-===================
-
-.. note::
-
-   [TODO]
-
-   Include a list of current development targets, in (rough) descending order
-   of priority.  It can be a simple bulleted list of roadmap items with links
-   to Github issues or wiki pages.
-
-Getting Help
-============
-
-.. note::
-
-   [TODO]
-
-   Use the following as a template, but feel free to add specific places where
-   this MFE is commonly discussed.
-
-If you're having trouble, we have discussion forums at
-https://discuss.openedx.org where you can connect with others in the community.
-
-Our real-time conversations are on Slack. You can request a `Slack
-invitation`_, then join our `community Slack workspace`_.  Because this is a
-frontend repository, the best place to discuss it would be in the `#wg-frontend
-channel`_.
-
-For anything non-trivial, the best path is to open an issue in this repository
-with as many details about the issue you are facing as you can provide.
-
-https://github.com/openedx/frontend-app-mf-shell/issues
-
-For more information about these options, see the `Getting Help`_ page.
-
-.. _Slack invitation: https://openedx.org/slack
-.. _community Slack workspace: https://openedx.slack.com/
-.. _#wg-frontend channel: https://openedx.slack.com/archives/C04BM6YC7A6
-.. _Getting Help: https://openedx.org/getting-help
+Hot module replacement breaks if a developer first changes the shell and then the remote.  HMR loses track of the remote's HMR configuration when this happens, resulting in an error until the page is refreshed.  Basically, if you're developing the shell, don't try to develop domain1 (a remote) in the same page load.
 
 License
 =======
@@ -219,12 +70,6 @@ Please see `LICENSE <LICENSE>`_ for details.
 
 Contributing
 ============
-
-.. note::
-
-   [TODO]
-
-   Feel free to add contribution details specific to your repository.
 
 Contributions are very welcome.  Please read `How To Contribute`_ for details.
 

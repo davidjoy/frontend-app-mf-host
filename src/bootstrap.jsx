@@ -11,12 +11,12 @@ import Header from '@edx/frontend-component-header/dist/Header';
 import Footer from '@edx/frontend-component-footer/dist/components/Footer';
 import { init } from '@module-federation/runtime/.';
 import messages from './i18n';
-import ExamplePage from './example/ExamplePage';
+import ShellPage from './shell-page/ShellPage';
 
 import './index.scss';
 
 init({
-  name: 'shelly',
+  name: 'shell',
   remotes: [
     {
       name: 'domain1',
@@ -29,7 +29,7 @@ subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider>
       <Header />
-      <ExamplePage />
+      <ShellPage />
       <Footer />
     </AppProvider>,
     document.getElementById('root'),

@@ -9,7 +9,7 @@ config.plugins = [
   ...config.plugins,
 
   new ModuleFederationPlugin({
-    name: 'shelly',
+    name: 'shell',
     shared: {
       react: {
         singleton: true,
