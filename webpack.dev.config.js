@@ -3,13 +3,13 @@ const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 
 const config = createConfig('webpack-dev');
 
-config.output.uniqueName = 'mf-shell';
+config.output.uniqueName = 'mf-host';
 
 config.plugins = [
   ...config.plugins,
 
   new ModuleFederationPlugin({
-    name: 'shell',
+    name: 'host',
     shared: {
       react: {
         singleton: true,

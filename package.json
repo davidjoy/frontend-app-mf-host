@@ -1,10 +1,10 @@
 {
-  "name": "@edx/frontend-app-mf-shell",
+  "name": "@edx/frontend-app-mf-host",
   "version": "0.1.0",
   "description": "Frontend application template",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-app-mf-shell.git"
+    "url": "git+https://github.com/openedx/frontend-app-mf-host.git"
   },
   "browserslist": [
     "extends @edx/browserslist-config"
@@ -26,12 +26,12 @@
   },
   "author": "edX",
   "license": "AGPL-3.0",
-  "homepage": "https://github.com/openedx/frontend-app-mf-shell#readme",
+  "homepage": "https://github.com/openedx/frontend-app-mf-host#readme",
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/openedx/frontend-app-mf-shell/issues"
+    "url": "https://github.com/openedx/frontend-app-mf-host/issues"
   },
   "dependencies": {
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
