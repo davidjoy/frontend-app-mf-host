@@ -1,5 +1,5 @@
 import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+import 'regenerator-runtime';
 
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
