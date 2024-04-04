@@ -1,4 +1,4 @@
-import { loadRemote } from '@module-federation/runtime/.';
+import { loadRemote } from '@module-federation/runtime';
 import { lazy, useEffect, useState } from 'react';
 
 function loadComponent(scope, module) {
