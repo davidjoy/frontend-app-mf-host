@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 
 import Header from '@edx/frontend-component-header/dist/Header';
 import Footer from '@edx/frontend-component-footer/dist/components/Footer';
-import { init } from '@module-federation/runtime/.';
+import { init } from '@module-federation/runtime';
 import messages from './i18n';
 import HostPage from './host-page/HostPage';
 
