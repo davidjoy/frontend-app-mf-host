@@ -1,7 +1,7 @@
 const { createConfig } = require('@openedx/frontend-build');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 
-const config = createConfig('webpack-dev');
+const config = createConfig('webpack-prod');
 
 config.output.uniqueName = 'mf-host';
 
