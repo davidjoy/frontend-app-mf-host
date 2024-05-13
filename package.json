@@ -44,8 +44,8 @@
     "@fortawesome/free-regular-svg-icons": "5.15.4",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@fortawesome/react-fontawesome": "0.2.0",
+    "@module-federation/runtime": "^0.1.12",
     "@openedx/paragon": "^22.0.0",
-    "@module-federation/runtime": "^0.0.17",
     "core-js": "3.36.0",
     "prop-types": "15.8.1",
     "react": "17.0.2",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "@edx/browserslist-config": "^1.1.1",
     "@edx/reactifex": "^2.1.1",
-    "@module-federation/enhanced": "^0.0.17",
+    "@module-federation/enhanced": "^0.1.12",
     "@openedx/frontend-build": "13.0.28",
     "glob": "7.2.3",
     "husky": "7.0.4",
