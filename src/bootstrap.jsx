@@ -2,16 +2,18 @@ import 'core-js/stable';
 import 'regenerator-runtime';
 
 import {
-  APP_INIT_ERROR, APP_READY, subscribe, initialize,
-} from '@edx/frontend-platform';
-import { AppProvider, ErrorPage } from '@edx/frontend-platform/react';
+  APP_INIT_ERROR, APP_READY,
+  AppProvider, ErrorPage,
+  initialize,
+  subscribe,
+} from '@openedx/frontend-base';
 import ReactDOM from 'react-dom';
 
-import Header from '@edx/frontend-component-header/dist/Header';
 import Footer from '@edx/frontend-component-footer/dist/components/Footer';
+import Header from '@edx/frontend-component-header/dist/Header';
 import { init } from '@module-federation/runtime';
-import messages from './i18n';
 import HostPage from './host-page/HostPage';
+import messages from './i18n';
 
 import './index.scss';
 

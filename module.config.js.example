@@ -26,6 +26,6 @@ module.exports = {
     // { moduleName: '@openedx/paragon/scss/core', dir: '../paragon', dist: 'scss/core' },
     // { moduleName: '@openedx/paragon/icons', dir: '../paragon', dist: 'icons' },
     // { moduleName: '@openedx/paragon', dir: '../paragon', dist: 'dist' },
-    // { moduleName: '@edx/frontend-platform', dir: '../frontend-platform', dist: 'dist' },
+    // { moduleName: '@openedx/frontend-base', dir: '../frontend-base', dist: 'dist' },
   ],
 };

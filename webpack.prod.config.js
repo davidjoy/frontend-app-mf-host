@@ -1,4 +1,4 @@
-const { createConfig } = require('@openedx/frontend-build');
+const { createConfig } = require('@openedx/frontend-base/config');
 const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 
 const config = createConfig('webpack-prod');
@@ -22,9 +22,9 @@ config.plugins = [
       '@openedx/paragon': {
         requiredVersion: '^22.0.0',
       },
-      '@edx/frontend-platform': {
+      '@openedx/frontend-base': {
         singleton: true,
-        requiredVersion: '^7.1.2',
+        requiredVersion: '^1',
       },
       'prop-types': {
         requiredVersion: '^15.8.1',
