@@ -16,9 +16,9 @@ module.exports = {
   */
   localModules: [
     /*********************************************************************************************
-     IMPORTANT NOTE: If any of the below packages (like paragon or frontend-platform) have a build
+     IMPORTANT NOTE: If any of the below packages (like paragon or frontend-base) have a build
      step that populates their 'dist' directories, you must manually run that step.  For paragon
-     and frontend-platform, for instance, you need to run `npm run build` in the repo before
+     and frontend-base, for instance, you need to run `npm run build` in the repo before
      module.config.js will work.
     **********************************************************************************************/
 
